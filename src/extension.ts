@@ -247,6 +247,28 @@ export async function activate(context: vscode.ExtensionContext) {
     )
   );
 
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "enfocusSwitchScripter.saveProperties",
+      async () => {
+        try {
+          const builder = new xml2js.Builder({ renderOpts: { pretty: true } });
+          const xml = builder.buildObject(XmlResultInstance.data);
+
+          await fs.promises.writeFile(xmlFilePath, xml, "utf-8");
+
+          vscode.window.showInformationMessage("Script saved successfully.");
+        } catch (err) {
+          vscode.window.showErrorMessage(
+            `Error saving script: ${
+              err instanceof Error ? err.message : String(err)
+            }`
+          );
+        }
+      }
+    )
+  );
+
   xmlTreeViewProvider.onDidSelectItem((xmlNode: PropertyNode) => {
     if (xmlNode) {
       provider.updateContent(xmlNode);

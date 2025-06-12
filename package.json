@@ -64,6 +64,12 @@
         "category": "Enfocus SwitchScripter",
         "title": "Move Down",
         "icon": "$(arrow-down)"
+      },
+      {
+        "command": "enfocusSwitchScripter.saveProperties",
+        "category": "Enfocus SwitchScripter",
+        "title": "Save script",
+        "icon": "$(save)"
       }
     ],
     "menus": {
@@ -92,6 +98,11 @@
           "command": "enfocusSwitchScripter.moveDownItem",
           "group": "navigation",
           "when": "view == enfocusSwitchScripter.declarationView && enfocusSwitchScripter:moveEnabled"
+        },
+        {
+          "command": "enfocusSwitchScripter.saveProperties",
+          "group": "navigation",
+          "when": "view == enfocusSwitchScripter.declarationView"
         }
       ]
     }
