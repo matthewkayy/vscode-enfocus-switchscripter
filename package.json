@@ -1,7 +1,7 @@
 {
   "name": "vscode-enfocus-switchscripter",
   "displayName": "vscode-enfocus-switchscripter",
-  "description": "",
+  "description": "VSCode extension for working with Enfocus Switch Scripts",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.95.0"
