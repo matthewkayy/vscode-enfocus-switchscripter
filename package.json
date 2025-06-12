@@ -11,15 +11,15 @@
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
-	"contributes": {
+  "contributes": {
     "viewsContainers": {
-        "activitybar": [
-            {
-                "id": "enfocusSwitchScripterSidebar",
-                "title": "Enfocus SwitchScripter",
-                "icon": "resources/icon.svg"
-            }
-        ]
+      "activitybar": [
+        {
+          "id": "enfocusSwitchScripterSidebar",
+          "title": "Enfocus SwitchScripter",
+          "icon": "resources/icon.svg"
+        }
+      ]
     },
     "views": {
       "enfocusSwitchScripterSidebar": [
@@ -34,29 +34,68 @@
         }
       ]
     },
-		"commands": [
-			{
-				"command": "enfocusSwitchScripter.addColor",
-				"category": "Enfocus SwitchScripter",
-				"title": "Add Color"
-			},
-			{
-				"command": "enfocusSwitchScripter.addItem",
-				"category": "Enfocus SwitchScripter",
-				"title": "Add item",
-				"icon": "$(add)"
-			}
-		],
-		"menus": {
-			"view/title": [
-				{
-					"command": "enfocusSwitchScripter.addItem",
-					"group": "navigation",
-					"when": "view == enfocusSwitchScripter.declarationView"
-				}
-			]
-		}
-	},
+    "commands": [
+      {
+        "command": "enfocusSwitchScripter.addItem",
+        "category": "Enfocus SwitchScripter",
+        "title": "Add item",
+        "icon": "$(add)"
+      },
+      {
+        "command": "enfocusSwitchScripter.removeItem",
+        "category": "Enfocus SwitchScripter",
+        "title": "Remove item",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "enfocusSwitchScripter.duplicateItem",
+        "category": "Enfocus SwitchScripter",
+        "title": "Duplicate item",
+        "icon": "$(copy)"
+      },
+      {
+        "command": "enfocusSwitchScripter.moveUpItem",
+        "category": "Enfocus SwitchScripter",
+        "title": "Move Up",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "enfocusSwitchScripter.moveDownItem",
+        "category": "Enfocus SwitchScripter",
+        "title": "Move Down",
+        "icon": "$(arrow-down)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "enfocusSwitchScripter.addItem",
+          "group": "navigation",
+          "when": "view == enfocusSwitchScripter.declarationView && enfocusSwitchScripter:addEnabled"
+        },
+        {
+          "command": "enfocusSwitchScripter.removeItem",
+          "group": "navigation",
+          "when": "view == enfocusSwitchScripter.declarationView && enfocusSwitchScripter:removeEnabled"
+        },
+        {
+          "command": "enfocusSwitchScripter.duplicateItem",
+          "group": "navigation",
+          "when": "view == enfocusSwitchScripter.declarationView && enfocusSwitchScripter:duplicateEnabled"
+        },
+        {
+          "command": "enfocusSwitchScripter.moveUpItem",
+          "group": "navigation",
+          "when": "view == enfocusSwitchScripter.declarationView && enfocusSwitchScripter:moveEnabled"
+        },
+        {
+          "command": "enfocusSwitchScripter.moveDownItem",
+          "group": "navigation",
+          "when": "view == enfocusSwitchScripter.declarationView && enfocusSwitchScripter:moveEnabled"
+        }
+      ]
+    }
+  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",

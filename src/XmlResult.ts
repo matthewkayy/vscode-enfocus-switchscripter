@@ -12,4 +12,4 @@ class XmlResult {
     }
 }
 
-export const xmlResult = XmlResult.getInstance();
+export const XmlResultInstance = XmlResult.getInstance();
